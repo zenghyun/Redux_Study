@@ -19,7 +19,7 @@ export const AddPostForm = () => {
                     id: nanoid(),
                     title,
                     content
-                })
+                }) 
             )
         }
         setTitle('');

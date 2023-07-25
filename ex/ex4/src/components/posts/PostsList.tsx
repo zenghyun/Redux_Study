@@ -1,15 +1,14 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { PostStateType, fetchPosts, selectAllPosts } from "../../features/posts/postsSlice";
 import { RootStateType } from "../../app/store";
-import store from "../../app/store";
 import { Spinner } from "../common/Spinner";
 import PostAuthor from "./PostAuthor";
 import { TimeAgo } from "../common/TimeAgo";
 import { ReactionButtons } from "../common/ReactionButtons";
+import { useAppDispatch } from "../../features/posts/postsSlice";
 
-export type AppDispatch = typeof store.dispatch;
 
 const PostExcerpt = ({post} : {post: PostStateType}) => {
   return(
@@ -29,10 +28,9 @@ const PostExcerpt = ({post} : {post: PostStateType}) => {
   )
 };
 export const PostsList = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const posts = useSelector((selectAllPosts));
   const postStatus = useSelector((state: RootStateType) => state.posts.status);
-  console.log(postStatus);
   const error = useSelector((state: RootStateType) => state.posts.error);
 
   useEffect(() => {

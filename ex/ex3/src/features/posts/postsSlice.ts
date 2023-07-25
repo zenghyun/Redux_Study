@@ -11,7 +11,7 @@ export type PostStateType = {
   title: string;
   content: string;
   reactions: ReactionType;
-  user?: string;
+  user: string;
 };
 
 export type PostListsType = {
@@ -31,6 +31,7 @@ const initialState : PostStateType[] = [
       rocket: 0,
       eyes: 0,
     },
+    user: 'zenghyun',
   },
   {
     id: "2",
@@ -44,8 +45,10 @@ const initialState : PostStateType[] = [
       rocket: 0,
       eyes: 0,
     },
+    user: 'zenghyun',
   },
 ];
+
 
 const postsSlice = createSlice({
   name: "posts",

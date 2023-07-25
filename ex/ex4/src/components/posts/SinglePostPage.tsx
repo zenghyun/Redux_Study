@@ -6,6 +6,7 @@ import { TimeAgo } from "../common/TimeAgo";
 import { selectPostById } from "../../features/posts/postsSlice";
 import { ReactionButtons } from "../common/ReactionButtons";
 import { RootStateType } from "../../app/store";
+
 const SinglePostPage = () => {
   const params = useParams();
   const post = useSelector((state: RootStateType) =>

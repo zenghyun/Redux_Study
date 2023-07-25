@@ -1,6 +1,8 @@
 import { PayloadAction, createSlice, nanoid, createAsyncThunk} from "@reduxjs/toolkit";
 import { client } from "../../api/client";
 import { RootStateType } from "../../app/store";
+import { useDispatch } from "react-redux";
+import store from "../../app/store";
 
 export type ReactionType = {
   [key: string]: number;
@@ -117,3 +119,7 @@ export const selectAllPosts = (state: RootStateType) => state.posts.posts;
 
 export const selectPostById = (state: RootStateType, postId: string | undefined) =>
   state.posts.posts.find((post: PostStateType) => post.id === postId);
+
+export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();

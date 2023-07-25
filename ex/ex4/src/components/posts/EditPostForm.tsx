@@ -1,14 +1,16 @@
 import { ChangeEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { PostListsType, selectPostById, postUpdated, PostStateType } from "../../features/posts/postsSlice";
+import { selectPostById, postUpdated, PostStateType } from "../../features/posts/postsSlice";
+import { RootStateType } from "../../app/store";
+import { useAppDispatch } from "../../features/posts/postsSlice";
 
 export const EditPostForm = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const post = useSelector((state: PostListsType) =>
+  const post = useSelector((state: RootStateType) =>
   selectPostById(state, params.postId)
   ) as PostStateType;
 

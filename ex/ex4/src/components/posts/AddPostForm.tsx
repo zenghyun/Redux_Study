@@ -1,9 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { UserListType, UserStateType } from "../../features/users/usersSlice";
 // import { addNewPost, InitialPostType } from "../../features/posts/postsSlice";
-import { postAdded } from "../../features/posts/postsSlice";
-import { AppDispatch } from "./PostsList";
+import { postAdded, useAppDispatch } from "../../features/posts/postsSlice";
 
 export const AddPostForm = () => {
   const [title, setTitle] = useState("");
@@ -11,7 +10,7 @@ export const AddPostForm = () => {
   const [userId, setUserId] = useState("");
   // const [addRequestStatus, setAddRequestStatus] = useState('idle');
 
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   
   const users = useSelector((state: UserListType) => state.users);
 

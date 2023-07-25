@@ -9,7 +9,7 @@ const SinglePostPage = () => {
   const params = useParams();
   const post = useSelector((state: PostListsType) =>
     state.posts.find((post: PostStateType) => post.id === params.postId)
-  );
+  ) as PostStateType;
 
   if (!post) {
     return (
